@@ -1,0 +1,48 @@
+div.swal2-popup {
+  padding: 10px 0px 20px;
+  width: 300px;
+  min-height: 170px;
+  background-color: #ededed;
+}
+
+div.swal2-html-container {
+  font-family: "Arial";
+  font-size: 16px;
+  font-weight: 400;
+  color: #333333;
+  text-align: center;
+}
+
+h2.swal2-title {
+  font-size: 18px;
+}
+
+div.swal2-validation-message {
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  font-family: "Arial";
+  word-break: break-word;
+}
+
+button.swal2-styled {
+  width: 130px;
+  height: 40px;
+  border-radius: 5px;
+}
+
+button.swal2-styled.swal2-confirm {
+  background-color: #3498db;
+}
+
+button.swal2-styled.swal2-confirm:focus {
+  box-shadow: 0 0 0 3px #3498db40;
+}
+
+button.swal2-styled.swal2-cancel {
+  background-color: #bebebe;
+}
+
+button.swal2-styled.swal2-cancel:focus {
+  box-shadow: 0 0 0 3px #bebebe40;
+}
