@@ -1,0 +1,1 @@
+export { LoadingTemplate } from "./Loading";

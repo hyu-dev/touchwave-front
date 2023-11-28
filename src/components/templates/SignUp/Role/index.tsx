@@ -1,0 +1,1 @@
+export { RoleTemplate } from "./Role";

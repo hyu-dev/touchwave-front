@@ -1,0 +1,1 @@
+export { NotAccessTemplate } from "./NotAccess";

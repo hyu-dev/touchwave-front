@@ -1,0 +1,1 @@
+export { SettingTeamTemplate } from "./CreateTeam";

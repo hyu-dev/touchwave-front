@@ -1,0 +1,1 @@
+export { EmptyTemplate } from "./Empty";

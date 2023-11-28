@@ -1,0 +1,1 @@
+export { UserTeamTemplate } from "./Team";

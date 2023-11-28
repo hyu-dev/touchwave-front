@@ -1,0 +1,1 @@
+export { NoTeamTemplate } from "./NoTeam";

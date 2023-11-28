@@ -1,0 +1,1 @@
+export { TeamTemplate } from "./SelectTeam";
