@@ -170,7 +170,10 @@ export const UserTeamTemplate = () => {
         <>
           <div className="w-full flex-1 flex flex-col justify-center items-center">
             <Button
-              className={cls(isClick ? "btn-md-disabled" : "btn-md-style", "w-auto min-w-[130px]")}
+              className={cls(
+                isClick ? "btn-md-disabled" : "btn-md-style",
+                "w-auto min-w-[130px] px-[20px]"
+              )}
               disabled={isClick}
               onClick={onClick}
             >
