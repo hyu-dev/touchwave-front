@@ -136,7 +136,7 @@ type TSendMessageProps = {
   timer: number;
 };
 
-const serverPath = process.env.SERVER_PATH + "/notification";
+const serverPath = process.env.SERVER_PATH + "" + process.env.SERVER_PROXY_PARAMETER;
 export const sendMessage = async (sendData: TSendMessageProps) => {
   try {
     const response = await fetch(serverPath, {
