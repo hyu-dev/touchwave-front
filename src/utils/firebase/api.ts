@@ -111,9 +111,15 @@ export const registerServiceworker = async () => {
   }
 };
 
+const isIOS = () => {
+  return /iphone|ipad|ipod/i.test(navigator.userAgent.toLowerCase());
+};
+
 export const isNotification = async () => {
   if ("Notification" in window) {
     return Notification.requestPermission().then((permission) => {
+      if (isIOS()) return;
+
       if (permission === "default") {
         throw new Error("Please allow notifications to use the app.");
       } else if (permission === "denied") {
