@@ -26,7 +26,9 @@
 #### server
 
 - 코어: express, nodejs
+- DB: firestore
 - 배포: cloudtype
+- cd: github actions
 
 ### 기능 구현
 
