@@ -20,3 +20,18 @@ messaging.onBackgroundMessage(function (payload) {
 
   self.registration.showNotification(notificationTitle, notificationOptions);
 });
+
+////Code for adding event on click of notification
+self.addEventListener("notificationclick", function (event) {
+  event.notification.close();
+  event.waitUntil(
+    clients.matchAll().then((matchedClients) => {
+      for (let client of matchedClients) {
+        if (client.url === rootUrl) {
+          return client.focus();
+        }
+      }
+      return clients.openWindow("/");
+    })
+  );
+});
