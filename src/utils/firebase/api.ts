@@ -103,6 +103,14 @@ export const getLinkDocIdFromUserDocId = async (userDocId: string) => {
   return docsData.id;
 };
 
+export const registerServiceworker = async () => {
+  if ("serviceWorker" in navigator) {
+    await navigator.serviceWorker.register("firebase-messaging-sw.js", {
+      scope: "firebase-cloud-messaging-push-scope",
+    });
+  }
+};
+
 export const isNotification = async () => {
   if ("Notification" in window) {
     return Notification.requestPermission().then((permission) => {
