@@ -16,6 +16,8 @@ export const errors = (code: string) => {
       return "This domain address is not supported.";
     case "auth/too-many-requests":
       return "Too many request.<br/>Please try again in a few minutes.";
+    case "messaging/permission-blocked":
+      return "Please allow notifications to use the app.";
   }
 
   return "an unexpected error has occurred.";
