@@ -1,6 +1,7 @@
 import { onAuthStateChanged } from "@firebase/auth";
 import { FirestoreError, doc, updateDoc } from "@firebase/firestore";
 import { onMessage } from "@firebase/messaging";
+import { FirebaseError } from "@firebase/util";
 import { useAccountAction } from "@hooks/useAccount";
 import { useLoadingState } from "@hooks/useLoading";
 import { useTeamAction } from "@hooks/useTeam";
@@ -40,11 +41,14 @@ export const useCallData = () => {
           return;
         }
 
-        // 권한 확인
-        await fb.api.isNotification();
+        let token: string | null = null;
+        const permission = await fb.api.isNotification();
 
         // fcm 토큰 가져와서 유저정보 등록
-        const token = await fb.api.getFCMToken();
+        if (permission === "granted") {
+          token = await fb.api.getFCMToken();
+        }
+
         const docRef = doc(fb.db, "accounts", userData.id);
 
         // 이메일 인증여부가 저장된 정보와 다른 경우
@@ -87,6 +91,14 @@ export const useCallData = () => {
       } catch (e) {
         if (e instanceof FirestoreError) {
           Alert.error({ text: fb.errors(e.code) });
+        } else if (e instanceof FirebaseError) {
+          Alert.error({
+            text: fb.errors(e.code),
+            action: () => {
+              accountState.onChangeAccount(null);
+              fb.auth.signOut();
+            },
+          });
         } else if (e instanceof Error) {
           Alert.error({
             text: e.message,

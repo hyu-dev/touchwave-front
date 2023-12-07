@@ -111,31 +111,17 @@ export const registerServiceworker = async () => {
   }
 };
 
-const isIOS = () => {
-  return /iphone|ipad|ipod/i.test(navigator.userAgent.toLowerCase());
-};
-
-export const isNotification = async () => {
+export const isNotification = () => {
   if ("Notification" in window) {
-    return Notification.requestPermission().then((permission) => {
-      if (isIOS()) return;
-
-      if (permission === "default") {
-        throw new Error("Please allow notifications to use the app.");
-      } else if (permission === "denied") {
-        throw new Error(
-          `Notifications are not allowed.\nPlease allow notifications to use the app.`
-        );
-      }
-    });
-  } else {
-    throw new Error("This browser does not support desktop notification.");
+    return Notification.requestPermission();
   }
+
+  throw new Error("This browser does not support desktop notification.");
 };
 
 // fcm 토큰 가져오기
 const vapidKey = process.env.FIREBASE_VAPID_KEY;
-export const getFCMToken = async () => {
+export const getFCMToken = () => {
   return getToken(fb.messaging, { vapidKey: vapidKey });
 };
 
