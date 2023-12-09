@@ -48,7 +48,7 @@ export const SignUpTemplate = () => {
                 email,
                 nickname,
                 role,
-                isNotification: true,
+                isNotification: false,
                 lateAccessDate: new Date().getTime(),
                 token: null,
                 verify: false,
