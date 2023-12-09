@@ -71,5 +71,3 @@ export const router = createBrowserRouter([
     errorElement: <NotFound />,
   },
 ]);
-
-const loader = () => {};

@@ -1,5 +1,5 @@
+import { IconBaseProps } from "@react-icons/all-files";
 import { FaList } from "@react-icons/all-files/fa/FaList";
-import { IconBaseProps } from "@react-icons/all-files/lib";
 
 const Icons = {
   list: FaList,
