@@ -67,8 +67,6 @@ export const LoginTemplate = () => {
       } catch (e) {
         if (e instanceof FirebaseError) {
           Alert.error({ html: fb.errors(e.code) });
-        } else if (e instanceof Error) {
-          Alert.warning({ text: e.message });
         }
       } finally {
         onChangeLoading(false);

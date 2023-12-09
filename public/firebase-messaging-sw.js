@@ -16,11 +16,11 @@ self.addEventListener("notificationclick", function (event) {
   event.waitUntil(
     clients.matchAll().then((matchedClients) => {
       for (let client of matchedClients) {
-        if (client.url === rootUrl) {
+        if (client.url === "/") {
           return client.focus();
         }
       }
-      return clients.openWindow("https://touchwave.online");
+      return clients.openWindow("/");
     })
   );
 });
