@@ -107,13 +107,13 @@ export const getLinkDocIdFromUserDocId = async (userDocId: string) => {
 export const getOrRegisterServiceWorker = async () => {
   if ("serviceWorker" in navigator) {
     const serviceWorker = await navigator.serviceWorker.getRegistration(
-      "/firebase-cloud-messaging-push-scope"
+      "firebase-cloud-messaging-push-scope"
     );
 
     if (serviceWorker) return serviceWorker;
 
-    return await navigator.serviceWorker.register("/firebase-messaging-sw.js", {
-      scope: "/firebase-cloud-messaging-push-scope",
+    return await navigator.serviceWorker.register("firebase-messaging-sw.js", {
+      scope: "firebase-cloud-messaging-push-scope",
     });
   }
 
@@ -132,12 +132,7 @@ export const isNotification = () => {
 // fcm 토큰 가져오기
 const vapidKey = process.env.FIREBASE_VAPID_KEY;
 export const getFCMToken = async () => {
-  try {
-    const serviceWorkerRegistration = await getOrRegisterServiceWorker();
-    return getToken(fb.messaging, { vapidKey: vapidKey, serviceWorkerRegistration });
-  } catch (e) {
-    throw e;
-  }
+  return getToken(fb.messaging, { vapidKey: vapidKey });
 };
 
 // 버튼 클릭해서 fcm 알림 보내기
