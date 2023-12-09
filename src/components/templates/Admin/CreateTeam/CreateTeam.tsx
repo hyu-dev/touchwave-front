@@ -94,8 +94,6 @@ export const SettingTeamTemplate = () => {
               teamName,
               buttonName,
               peopleCount: people,
-              tokenKey: null,
-              tokenKeyName: null,
             };
 
             const team = await addDoc(collection(fb.db, "teams"), sendData);
