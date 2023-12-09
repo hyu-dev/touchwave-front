@@ -20,7 +20,7 @@ self.addEventListener("notificationclick", function (event) {
           return client.focus();
         }
       }
-      return clients.openWindow("/");
+      return clients.openWindow("https://touchwave.online");
     })
   );
 });
