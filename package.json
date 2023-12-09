@@ -1,6 +1,6 @@
 {
   "name": "TouchWave",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "When you click, a notification will be sent to everyone on your team",
   "main": "index.js",
   "scripts": {
