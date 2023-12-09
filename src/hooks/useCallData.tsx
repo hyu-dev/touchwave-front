@@ -41,7 +41,7 @@ export const useCallData = () => {
           return;
         }
 
-        let token: string | null = null;
+        let token: string | null = userData.token;
         const permission = await fb.api.isNotification();
 
         // fcm 토큰 가져와서 유저정보 등록
@@ -65,9 +65,9 @@ export const useCallData = () => {
 
         // 메세지 리스너 등록
         onMessage(fb.messaging, (payload) => {
-          if (payload.data) {
-            const title = payload.data.title;
-            const body = payload.data.body;
+          if (payload.notification) {
+            const title = payload.notification.title ?? "";
+            const body = payload.notification.body ?? "";
             toastState.toastQueue.enqueue({ title, body });
             toastState.onRefresh();
           }

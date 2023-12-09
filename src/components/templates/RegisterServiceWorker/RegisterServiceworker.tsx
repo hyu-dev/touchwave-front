@@ -4,7 +4,7 @@ import { useEffect } from "react";
 // firebase messaging cloud service worker 등록
 export const RegisterServiceWorker = () => {
   useEffect(() => {
-    fb.api.registerServiceworker();
+    fb.api.getOrRegisterServiceWorker();
   }, []);
 
   return null;

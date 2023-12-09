@@ -11,17 +11,6 @@ firebase.initializeApp({
 
 const messaging = firebase.messaging();
 
-messaging.onBackgroundMessage(function (payload) {
-  const notification = payload.data;
-  const notificationTitle = notification.title;
-  const notificationOptions = {
-    body: notification.body,
-  };
-
-  self.registration.showNotification(notificationTitle, notificationOptions);
-});
-
-////Code for adding event on click of notification
 self.addEventListener("notificationclick", function (event) {
   event.notification.close();
   event.waitUntil(
