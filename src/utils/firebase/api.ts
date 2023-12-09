@@ -104,20 +104,14 @@ export const getLinkDocIdFromUserDocId = async (userDocId: string) => {
 };
 
 // 서비스 워커 등록
-export const getOrRegisterServiceWorker = async () => {
+export const registerServiceWorker = async () => {
   if ("serviceWorker" in navigator) {
-    const serviceWorker = await navigator.serviceWorker.getRegistration(
-      "firebase-cloud-messaging-push-scope"
-    );
-
-    if (serviceWorker) return serviceWorker;
-
-    return await navigator.serviceWorker.register("firebase-messaging-sw.js", {
+    await navigator.serviceWorker.register("firebase-messaging-sw.js", {
       scope: "firebase-cloud-messaging-push-scope",
     });
+  } else {
+    throw new Error("The browser doesn`t support service worker.");
   }
-
-  throw new Error("The browser doesn`t support service worker.");
 };
 
 // 알림권한확인
