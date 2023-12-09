@@ -8,7 +8,7 @@ export const RegisterServiceWorker = () => {
   const toastState = useToastState();
 
   useEffect(() => {
-    fb.api.getOrRegisterServiceWorker();
+    fb.api.registerServiceWorker();
 
     // 메세지 리스너 등록
     onMessage(fb.messaging, (payload) => {
