@@ -35,7 +35,7 @@ export const FindPassword = () => {
 
   return (
     <Button type="button" className="text-guide-style text-md" onClick={onFindPassword}>
-      🥕 Forgot your password?
+      🌀 Forgot your password?
     </Button>
   );
 };

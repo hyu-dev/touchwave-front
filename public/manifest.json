@@ -2,7 +2,7 @@
   "name": "TouchWave",
   "short_name": "TouchWave",
   "description": "Notify team members upon arrival at work, waking up, appointments, and meetings!",
-  "start_url": "/",
+  "start_url": ".",
   "display": "standalone",
   "theme_color": "#AEC3AE",
   "background_color": "#ffffff",
