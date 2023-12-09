@@ -11,17 +11,21 @@ export const useChangeToggle = () => {
     (userDocId: string) => async (notification: boolean) => {
       try {
         let isNotification = notification;
+        let token = account.token;
 
         if (isNotification) {
           const permission = await fb.api.isNotification();
           isNotification = permission === "granted";
-          if (isNotification === false) {
+
+          if (isNotification) {
+            token = await fb.api.getFCMToken();
+          } else {
             Alert.warning({ html: "Please allow notifications to use the app." });
           }
         }
 
         const docRef = doc(fb.db, "accounts", userDocId);
-        await updateDoc(docRef, { isNotification });
+        await updateDoc(docRef, { isNotification, token });
         accountState.onChangeAccountNotify(isNotification);
       } catch (e) {
         if (e instanceof FirestoreError) {
