@@ -103,6 +103,7 @@ export const getLinkDocIdFromUserDocId = async (userDocId: string) => {
   return docsData.id;
 };
 
+// 서비스 워커 등록
 export const getOrRegisterServiceWorker = async () => {
   if ("serviceWorker" in navigator) {
     const serviceWorker = await navigator.serviceWorker.getRegistration(
@@ -119,6 +120,7 @@ export const getOrRegisterServiceWorker = async () => {
   throw new Error("The browser doesn`t support service worker.");
 };
 
+// 알림권한확인
 export const isNotification = () => {
   if ("Notification" in window) {
     return Notification.requestPermission();

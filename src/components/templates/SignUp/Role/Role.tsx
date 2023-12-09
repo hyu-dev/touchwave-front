@@ -51,7 +51,11 @@ export const RoleTemplate = () => {
         </Text>
       </div>
       <div>
-        <Button type="button" className="btn-text-style" onClick={onCancel}>
+        <Button
+          type="button"
+          className="btn-md-style bg-cs-bg-disabled text-cs-disabled"
+          onClick={onCancel}
+        >
           CANCEL
         </Button>
       </div>
