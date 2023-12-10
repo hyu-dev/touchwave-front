@@ -8,10 +8,12 @@ export type TTeam = {
   peopleCount: number;
 };
 
+export type TChangeTeamEntries = Partial<Pick<TTeam, "buttonName" | "peopleCount" | "teamName">>;
+
 export type TTeamAction = {
   team: TTeam | null | undefined;
   onChangeTeam: (team: TTeam | null) => void;
-  onChangePeople: (people: number) => void;
+  onChangeTeamInfo: (changeEntries: TChangeTeamEntries) => void;
 };
 
 export const useTeamAction = (): TTeamAction => {
@@ -24,9 +26,9 @@ export const useTeamAction = (): TTeamAction => {
     [setTeam]
   );
 
-  const onChangePeople = useCallback(
-    (people: number) => {
-      setTeam((prev) => (prev ? { ...prev, peopleCount: people } : null));
+  const onChangeTeamInfo = useCallback(
+    (changeEntries: TChangeTeamEntries) => {
+      setTeam((prev) => (prev ? { ...prev, ...changeEntries } : null));
     },
     [setTeam]
   );
@@ -35,7 +37,7 @@ export const useTeamAction = (): TTeamAction => {
     () => ({
       team,
       onChangeTeam,
-      onChangePeople,
+      onChangeTeamInfo,
     }),
     [team]
   );
