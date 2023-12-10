@@ -16,11 +16,11 @@ self.addEventListener("notificationclick", function (event) {
   event.waitUntil(
     clients.matchAll().then((matchedClients) => {
       for (let client of matchedClients) {
-        if (client.url === "/") {
+        if (client.url === event.notification.data.url) {
           return client.focus();
         }
       }
-      return clients.openWindow("/");
+      return clients.openWindow(event.notification.data.url);
     })
   );
 });

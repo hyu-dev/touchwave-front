@@ -104,14 +104,14 @@ export const getLinkDocIdFromUserDocId = async (userDocId: string) => {
 };
 
 // 서비스 워커 등록
-export const registerServiceWorker = async () => {
+export const registerServiceWorker = () => {
   if ("serviceWorker" in navigator) {
-    await navigator.serviceWorker.register("firebase-messaging-sw.js", {
+    return navigator.serviceWorker.register("/firebase-messaging-sw.js", {
       scope: "firebase-cloud-messaging-push-scope",
     });
-  } else {
-    throw new Error("The browser doesn`t support service worker.");
   }
+
+  throw new Error("The browser doesn`t support service worker.");
 };
 
 // 알림권한확인
@@ -126,7 +126,8 @@ export const isNotification = () => {
 // fcm 토큰 가져오기
 const vapidKey = process.env.FIREBASE_VAPID_KEY;
 export const getFCMToken = async () => {
-  return getToken(fb.messaging, { vapidKey: vapidKey });
+  const serviceWorkerRegistration = await registerServiceWorker();
+  return getToken(fb.messaging, { vapidKey: vapidKey, serviceWorkerRegistration });
 };
 
 // 버튼 클릭해서 fcm 알림 보내기
@@ -138,6 +139,7 @@ type TSendMessageProps = {
   nickname: string;
   sendTime: string;
   timer: number;
+  domain: string;
 };
 
 const serverPath = process.env.SERVER_PATH + "" + process.env.SERVER_PROXY_PARAMETER;

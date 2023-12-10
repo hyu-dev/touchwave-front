@@ -55,6 +55,7 @@ export const UserTeamTemplate = () => {
         nickname: account.nickname,
         sendTime: dayjs(sendTime).format("YYYY.MM.DD HH:mm:ss"),
         timer: sendTime.getTime(),
+        domain: window.location.hostname,
       });
 
       if (result.error) {
