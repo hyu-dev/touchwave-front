@@ -3,6 +3,7 @@ export const errors = (code: string) => {
     case "auth/email-already-in-use":
       return "There is already a registered user.";
     case "auth/invalid-login-credentials":
+    case "auth/invalid-credential":
       return "Your login information is incorrect.";
     case "auth/quota-exceeded":
       return "Exceeded daily quota for email sign-in.";
