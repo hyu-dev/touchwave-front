@@ -46,7 +46,6 @@ export const SettingTeamTemplate = () => {
       teamName: {
         id: "teamNameInput",
         placeholder: "Please enter your team name.",
-        disabled: !!teamState.team?.teamName,
         register: register("teamName", {
           required: true,
           pattern: /^[a-zA-Z가-힣]{1,10}$/g,
@@ -55,7 +54,6 @@ export const SettingTeamTemplate = () => {
       buttonName: {
         id: "buttonNameInput",
         placeholder: "Please enter the button name.",
-        disabled: !!teamState.team?.buttonName,
         register: register("buttonName", {
           required: true,
           pattern: /^[a-zA-Z가-힣]{1,10}$/g,
@@ -123,18 +121,18 @@ export const SettingTeamTemplate = () => {
 
   // 팀 수정 로직
   const editTeam = useCallback(
-    ({ people, teamDocId }: TFormValue & { teamDocId: string }) =>
+    ({ teamName, buttonName, people, teamDocId }: TFormValue & { teamDocId: string }) =>
       async (result: SweetAlertResult) => {
         if (result.isConfirmed) {
           loadingState.onChangeLoading(true);
           try {
-            // 팀 찾기
+            // 팀 쿼리
             const docRef = doc(fb.db, "teams", teamDocId);
-            // 팀 업데이트
-            await updateDoc(docRef, { peopleCount: people });
 
-            // 팀 state 변경
-            teamState.onChangePeople(people);
+            // 팀 업데이트
+            const changeData = { peopleCount: people, buttonName, teamName };
+            await updateDoc(docRef, changeData);
+            teamState.onChangeTeamInfo(changeData);
 
             // 홈으로 이동
             navigate("/admin");

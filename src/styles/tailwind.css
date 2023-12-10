@@ -56,6 +56,20 @@
   button:hover .btn-hover {
     display: block;
   }
+
+  .btn-hover-scale {
+    transition: all 0.3s linear;
+  }
+
+  button:hover.btn-hover-scale {
+    transform: scale(1.1);
+  }
+
+  button:active.btn-hover-scale {
+    transform: scale(1.1);
+    position: relative;
+    top: 3px;
+  }
 }
 
 @layer components {

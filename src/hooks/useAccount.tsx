@@ -8,6 +8,8 @@ export type TNotificationData = {
   textBody: string;
 };
 
+export type TChangeAccountEntries = Pick<TAccount, "nickname">;
+
 export type TAccount = {
   id: string;
   userId: string;
@@ -28,6 +30,7 @@ export type TAccountAction = {
   onChangeAccountNotify: (isNotification: boolean) => void;
   onChangeRecentAuthEmailDate: (recentAuthEmailDate: number) => void;
   onChangeNotificationData: (notificationData?: TNotificationData | null) => void;
+  onChangeInfo: (changeInfo: TChangeAccountEntries) => void;
 };
 
 export const useAccountAction = () => {
@@ -55,6 +58,10 @@ export const useAccountAction = () => {
     setAccount((prev) => (prev ? { ...prev, notificationData } : null));
   }, []);
 
+  const onChangeInfo = useCallback((changeInfo: TChangeAccountEntries) => {
+    setAccount((prev) => (prev ? { ...prev, ...changeInfo } : null));
+  }, []);
+
   const resultProps = useMemo(
     () => ({
       account,
@@ -62,6 +69,7 @@ export const useAccountAction = () => {
       onChangeAccountNotify,
       onChangeRecentAuthEmailDate,
       onChangeNotificationData,
+      onChangeInfo,
     }),
     [account]
   );

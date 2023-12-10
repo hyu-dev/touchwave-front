@@ -1,5 +1,6 @@
 export * from "./useAccount";
 export * from "./useCallData";
+export * from "./useChangeInfo";
 export * from "./useChangeToggle";
 export * from "./useLoading";
 export * from "./useOutletProps";

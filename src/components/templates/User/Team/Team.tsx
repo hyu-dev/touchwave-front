@@ -55,6 +55,7 @@ export const UserTeamTemplate = () => {
         nickname: account.nickname,
         sendTime: dayjs(sendTime).format("YYYY.MM.DD HH:mm:ss"),
         timer: sendTime.getTime(),
+        domain: window.location.hostname,
       });
 
       if (result.error) {
@@ -171,7 +172,7 @@ export const UserTeamTemplate = () => {
           <div className="w-full flex-1 flex flex-col justify-center items-center">
             <Button
               className={cls(
-                isClick ? "btn-md-disabled" : "btn-md-style",
+                isClick ? "btn-md-disabled" : "btn-md-style btn-hover-scale",
                 "w-auto min-w-[130px] px-[20px]"
               )}
               disabled={isClick}
