@@ -3,15 +3,11 @@ import { LoginHeader } from "@components/templates/Header";
 import { Info } from "@components/templates/Info";
 import { UserInviteTemplate } from "@components/templates/User/Invitation";
 import { UserTeamTemplate } from "@components/templates/User/Team";
-import { useChangeToggle } from "@hooks/useChangeToggle";
 import { useOutletProps } from "@hooks/useOutletProps";
-import { useSignOut } from "@hooks/useSignOut";
 import { Fragment } from "react";
 
 export const UserTemplate = () => {
   const { account, teamState } = useOutletProps();
-  const { onSignOut } = useSignOut();
-  const { onChangeNotification } = useChangeToggle();
 
   return (
     <Fragment>
@@ -22,8 +18,7 @@ export const UserTemplate = () => {
             userName={account.nickname}
             userEmail={account.email}
             isNotification={account.isNotification}
-            onChange={onChangeNotification(account.id)}
-            onSignOut={onSignOut(account.id)}
+            userDocId={account.id}
           />
         }
       />

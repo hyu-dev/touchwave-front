@@ -8,7 +8,7 @@ export type TSwalTemplate = {
   html?: string;
   action?: TAlertAction;
   failed?: TAlertAction;
-  input?: "email";
+  input?: "email" | "text";
 } & SweetAlertOptions;
 
 export type TAlertAction = <T = any>(value: SweetAlertResult<T>) => void;
