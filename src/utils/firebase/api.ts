@@ -126,8 +126,7 @@ export const isNotification = () => {
 // fcm 토큰 가져오기
 const vapidKey = process.env.FIREBASE_VAPID_KEY;
 export const getFCMToken = async () => {
-  const serviceWorkerRegistration = await registerServiceWorker();
-  return getToken(fb.messaging, { vapidKey: vapidKey, serviceWorkerRegistration });
+  return getToken(fb.messaging, { vapidKey: vapidKey });
 };
 
 // 버튼 클릭해서 fcm 알림 보내기
