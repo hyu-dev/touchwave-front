@@ -25,12 +25,12 @@ export const DeleteAccount = memo(() => {
             const user = fb.auth.currentUser;
 
             if (user) {
+              // 인증 계정 삭제
+              await deleteUser(user);
+
               // firestore 계정 삭제
               const docRef = doc(fb.db, "accounts", account.id);
               await deleteDoc(docRef);
-
-              // 인증 계정 삭제
-              await deleteUser(user);
             }
 
             navigate("/login");

@@ -7,5 +7,6 @@
   "theme_color": "#AEC3AE",
   "background_color": "#ffffff",
   "crossorigin": "use-credentials",
-  "filename": "manifest.json"
+  "filename": "manifest.json",
+  "orientation": "portrait"
 }

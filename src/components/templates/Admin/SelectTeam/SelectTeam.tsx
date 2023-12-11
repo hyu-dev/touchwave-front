@@ -107,7 +107,7 @@ export const TeamTemplate = () => {
     <div className="w-full flex-1 flex flex-col">
       <Spacing className="h-[20px]" />
       <div className="w-full flex-1 flex flex-col justify-center items-center">
-        <Text as="p" className="text-lg text-cs-primary font-sans">
+        <Text as="p" className="text-lg text-cs-primary font-point">
           Information of the created team
         </Text>
         <Spacing className="h-[15px]" />

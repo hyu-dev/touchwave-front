@@ -67,7 +67,7 @@ export const RegisterTemplate = () => {
       <Spacing className="h-[30px]" />
       <div className="w-full flex-1 flex flex-col">
         <div className="w-full">
-          <Label className="font-mono" htmlFor="nicknameInput">
+          <Label className="font-point" htmlFor="nicknameInput">
             nickname
           </Label>
           <Spacing className="h-[15px]" />
@@ -78,7 +78,7 @@ export const RegisterTemplate = () => {
           </Text>
         </div>
         <div className="w-full relative">
-          <Label className="font-mono" htmlFor="emailInput">
+          <Label className="font-point" htmlFor="emailInput">
             email
           </Label>
           <Spacing className="h-[15px]" />
@@ -88,14 +88,14 @@ export const RegisterTemplate = () => {
           </Text>
         </div>
         <div className="w-full">
-          <Label className="font-mono" htmlFor="passwordInput">
+          <Label className="font-point" htmlFor="passwordInput">
             password
           </Label>
           <Spacing className="h-[15px]" />
           {Input<"password">(inputProps.password)}
           <Text as="p" className="text-error-style h-[35px] px-[10px]">
             {errors.password?.type === "pattern" &&
-              "✘ At least 8 characters including uppercase or lowercase letters, special characters, and numbers."}
+              "✘ At least 8 characters including upper or lower case letters, special characters, and numbers."}
           </Text>
         </div>
       </div>

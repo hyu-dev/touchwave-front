@@ -23,8 +23,6 @@ module.exports = {
       },
     },
     fontFamily: {
-      sans: ["Arial Black", "sans-serif"],
-      mono: ["Arial", "monospace"],
       point: ["KCC-Ganpan", "fantasy"],
     },
     fontSize: {

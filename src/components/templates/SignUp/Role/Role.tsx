@@ -53,10 +53,10 @@ export const RoleTemplate = () => {
       <div>
         <Button
           type="button"
-          className="btn-md-style bg-cs-bg-disabled text-cs-disabled"
+          className="btn-md-style bg-cs-bg-disabled text-[#fff]"
           onClick={onCancel}
         >
-          CANCEL
+          BACK
         </Button>
       </div>
     </section>

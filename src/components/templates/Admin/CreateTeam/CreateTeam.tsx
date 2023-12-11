@@ -174,7 +174,7 @@ export const SettingTeamTemplate = () => {
   return (
     <form className="w-full flex-1 flex flex-col" onSubmit={handleSubmit(onSubmit)}>
       <div className="w-full flex-1 flex flex-col justify-center">
-        <Label className="font-mono text-cs-text" htmlFor="teamNameInput">
+        <Label className="font-point text-cs-text" htmlFor="teamNameInput">
           Team Name
         </Label>
         <Spacing className="h-[15px]" />
@@ -183,7 +183,7 @@ export const SettingTeamTemplate = () => {
           {errors.teamName?.type === "pattern" &&
             "✘ Hangul, alphabet upper and lower case letters within 10 characters."}
         </Text>
-        <Label className="font-mono text-cs-text" htmlFor="buttonNameInput">
+        <Label className="font-point text-cs-text" htmlFor="buttonNameInput">
           Button Name
         </Label>
         <Spacing className="h-[15px]" />
@@ -192,7 +192,7 @@ export const SettingTeamTemplate = () => {
           {errors.buttonName?.type === "pattern" &&
             "✘ Hangul, alphabet upper and lower case letters within 10 characters."}
         </Text>
-        <Label className="font-mono w-[135px] text-cs-text" htmlFor="mobileInput">
+        <Label className="font-point w-[135px] text-cs-text" htmlFor="mobileInput">
           Number Of People
         </Label>
         <Spacing className="h-[15px]" />

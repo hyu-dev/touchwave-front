@@ -48,26 +48,32 @@ export const useCallData = () => {
           isNotification = true;
         }
 
-        // 유저 호출 쿼리
-        const docRef = doc(fb.db, "accounts", userData.id);
-
         // 이메일 인증여부가 저장된 정보와 다른 경우
         if (userData.verify !== user.emailVerified) {
-          await updateDoc(docRef, { verify: user.emailVerified });
           userData.verify = user.emailVerified;
         }
 
         // 토큰 정보가 저장된 정보와 다른 경우
         if (userData.token !== token) {
-          await updateDoc(docRef, { token });
           userData.token = token;
         }
 
         // 알림 정보가 다른 경우
         if (userData.isNotification !== isNotification) {
-          await updateDoc(docRef, { isNotification });
           userData.isNotification = isNotification;
         }
+
+        // 유저 호출 쿼리
+        const docRef = doc(fb.db, "accounts", userData.id);
+
+        // 유저 정보 업데이트
+        const userUpdateData = {
+          verify: userData.verify,
+          token: userData.token,
+          isNotification: userData.isNotification,
+        };
+
+        await updateDoc(docRef, userUpdateData);
 
         // 팀 정보 불러오기
         const team = await fb.api.getTeamFromUserDocId(userData.id);

@@ -94,7 +94,7 @@ export const LoginTemplate = () => {
           <Spacing className="h-[60px]" />
           <form className="w-full flex-1 flex flex-col" onSubmit={handleSubmit(onSubmit)}>
             <div className="w-full flex-1 flex flex-col">
-              <Label className="font-mono" htmlFor="emailInput">
+              <Label className="font-point" htmlFor="emailInput">
                 email
               </Label>
               <Spacing className="h-[15px]" />
@@ -102,7 +102,7 @@ export const LoginTemplate = () => {
               <Text as="p" className="text-error-style h-[35px] px-[10px]">
                 {errors.email?.type === "pattern" && "✘ Invalid pattern."}
               </Text>
-              <Label className="font-mono" htmlFor="passwordInput">
+              <Label className="font-point" htmlFor="passwordInput">
                 password
               </Label>
               <Spacing className="h-[15px]" />

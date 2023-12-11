@@ -5,14 +5,14 @@ import { useCallback } from "react";
 export const Guide = () => {
   const onClick = useCallback(() => {
     Alert.basic({
-      title: "Bug inquiry",
-      html: "Send it to hyu630115@gmail.com",
+      title: "Bug Inquiry",
+      html: "Send an email to<br/>hyu630115@gmail.com",
     });
   }, []);
 
   return (
     <Button type="button" className="text-guide-style text-sm" onClick={onClick}>
-      🌀 bug report
+      🚨 bug report
     </Button>
   );
 };

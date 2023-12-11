@@ -37,7 +37,7 @@ export const NotAccessTemplate = () => {
           </div>
           <div className="w-full flex flex-col justify-center items-center">
             <Text as="p" className="text-guide-style text-md">
-              🥕 Didn't receive the verification email?
+              📧 Send an email to <Text as="i">{account.email}</Text>
             </Text>
             <Spacing className="h-[15px]" />
             <SendEmail />
