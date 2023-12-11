@@ -24,7 +24,7 @@ export const Toggle = ({ id, isNotification, onChange }: TProps) => {
         checked={isNotification}
         readOnly
       />
-      <Text as="p" className="toggle-text-style">
+      <Text as="p" className="toggle-text-style whitespace-nowrap">
         {notification[Number(isNotification)]}
       </Text>
       <label htmlFor={id} className="toggle-label-style" onClick={onClick}>
