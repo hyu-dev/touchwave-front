@@ -74,7 +74,7 @@ export const UserInviteTemplate = () => {
   return (
     <form className="w-full flex-1 flex flex-col" onSubmit={handleSubmit(onSubmit)}>
       <div className="w-full flex-1 flex flex-col justify-center">
-        <Label className="font-mono" htmlFor="mobileInput">
+        <Label className="font-point" htmlFor="mobileInput">
           invitation
         </Label>
         <Spacing className="h-[15px]" />

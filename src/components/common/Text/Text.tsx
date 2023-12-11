@@ -14,7 +14,7 @@ export const Text = ({ as, children, className, ...props }: TProps) => {
     switch (as) {
       case "p":
       case "i":
-        return "font-mono font-thin";
+        return "font-point font-thin";
     }
   };
 
