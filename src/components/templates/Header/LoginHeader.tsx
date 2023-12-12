@@ -19,7 +19,7 @@ export const LoginHeader = ({ role, modalElement }: TProps) => {
     <header className="relative">
       <Heading as="h1">TouchWave</Heading>
       <Button
-        className="absolute top-[110px] right-[30px] z-10 text-cs-primary"
+        className="absolute top-[110px] right-[30px] z-10 font-point text-cs-primary"
         onClick={onOpenModal}
       >
         {role}
