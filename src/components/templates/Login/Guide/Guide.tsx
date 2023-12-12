@@ -6,7 +6,7 @@ export const Guide = () => {
   const onClick = useCallback(() => {
     Alert.basic({
       title: "Bug Inquiry",
-      html: "Send an email to<br/>hyu630115@gmail.com",
+      html: "Send an email to<br/>...",
     });
   }, []);
 
